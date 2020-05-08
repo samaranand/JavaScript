@@ -262,6 +262,15 @@ var UIController = (function(){
             m = months[m];
             y = now.getFullYear();
             document.querySelector(DOMstring.monthNyear).textContent =  m + ' ' + y;
+        },
+
+        // focus by red
+        changeTheme: function(){
+            var tmp = document.querySelectorAll(DOMstring.inpType + ',' + DOMstring.inpDes + ',' + DOMstring.inpValue);
+            for(var i=0; i<tmp.length; i++){
+                tmp[i].classList.toggle('red-focus');
+            };
+            document.querySelector(DOMstring.inpBtn).classList.toggle('red');
         }
     };
 
@@ -284,6 +293,11 @@ var controller = (function(budgetCtrl, UICtrl){
 
         // delete button clock
         document.querySelector(inpDOM.container).addEventListener('click',ctrlDltItem);
+
+        // changing class with inc n exp
+        document.querySelector(inpDOM.inpType).addEventListener('change',function(){
+            UICtrl.changeTheme();
+        });
 
     };
 
