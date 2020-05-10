@@ -362,7 +362,7 @@ var controller = (function(budgetCtrl, UICtrl){
 
     var ctrlDltItem = function(event){
         var itemID,splitItem, type, ID;
-
+        //console.log(event.target);
         itemID = event.target.parentNode.parentNode.parentNode.parentNode.id;
         //console.log(itemID);
         if(itemID){
