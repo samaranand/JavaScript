@@ -68,34 +68,69 @@ let data = {
     },
     'money' : {
         'patna' : {
+            'kolkata': 560, // 3297
+            'jaipur': 1109,
+            'newDelhi': 1090,
+            'mumbai': 1915,
 
         },
         'kolkata' : {
-
+            'newDelhi': 1517,
+            'mumbai': 2216,
+            'bengaluru': 1887,
+            'chennai': 1674,
         },
         'newDelhi' : {
+            'patna': 1085,
+            'kolkata': 1515,
+            'mumbai': 1480,
+            'bengaluru': 1695,
+            'hyderabad': 1253,
+            'sriNagar': 655
 
         },
         'mumbai' : {
+            'newDelhi': 1422, // 3800
+            'bengaluru': 860,
+            'hyderabad': 615
 
         },
         'bengaluru' : {
+            'mumbai': 842,
+            'newDelhi': 1700,
+            'kolkata': 1885,
+            'amritsar': 2098
 
         },
         'hyderabad' : {
-
+            'patna': 1140,
+            'kolkata': 1182,
+            'newDelhi': 1253,
+            'mumbai': 620,
+            'jaipur': 1096
         },
         'chennai' : {
+            'mumbai': 1028,
+            'newDelhi': 1760,
+            'bengaluru': 284
 
         },
         'amritsar' : {
-
+            'patna': 1208,
+            'mumbai': 1409,
+            'bengaluru': 2098,
+            'chennai': 2135,
         },
         'jaipur' : {
-
+            'kolkata': 1360,
+            'chennai': 1606,
+            'newDelhi': 241,
+            'hyderabad': 1096
         },
         'sriNagar' : {
-
+            'mumbai': 1673,
+            'amritsar': 460,
+            'newDelhi': 650
         }
 
     }
@@ -129,7 +164,7 @@ var UICtrl = (()=>{
             preferences: document.querySelector(DOMString.preference).value
         }
     };
-    var updateOutput = (origin, destination, answer, path) => {
+    var updateOutput = (origin, destination, answer, path, preference) => {
         let ans;
         console.log(origin);
         console.log(destination);
@@ -149,13 +184,21 @@ var UICtrl = (()=>{
         }
         origin = outputName[origin];
         destination = outputName[destination];
-        let price = answer*150;
+        let tmp;
+        if(preference === 'time'){
+            tmp = answer*2347;
+        } else {
+            tmp = Math.round(answer*(6.3892));
+            answer = Math.round(tmp/1000);
+        }
         if(path.length === 0){
-            ans = `<div class="output-value-0"><p>  1. &emsp;  ${origin} to ${destination} &emsp; Price: <i class="fas fa-rupee-sign fa-xs"  ></i>${price} &emsp; Time: ${answer}.00 hr</p></div>`;
+            ans = `<hr> <div class="output-value-0"><p>  1. &emsp;  ${origin} to ${destination} &emsp; Price: <i class="fas 
+            fa-rupee-sign fa-xs"  ></i>${tmp}.00 &emsp; Time: ${answer}.00 hr</p></div>`;
             console.log('samar')
         } else {
             console.log('anand');
-            ans = `<div class="output-value-2-0"><p>   1. &emsp;  ${origin} to ${destination} &emsp; Price: <i class="fas fa-rupee-sign fa-xs"  ></i>${price} &emsp; Time: ${answer}.00 hr <br> &emsp;&emsp; `;
+            ans = `<hr><div class="output-value-2-0"><p>   1. &emsp;  ${origin} to ${destination} &emsp; Price: <i class="fas 
+            fa-rupee-sign fa-xs"  ></i>${tmp}.00 &emsp; Time: ${answer}.00 hr <br> &emsp;&emsp; `;
             path.forEach(cur => {
                 ans = ans + `via ` + outputName[cur] + ` `;
             });
@@ -207,7 +250,7 @@ var controller = (function(UICtrl){
         var arr = new Array;
         var ans;
         if(origin===destination){
-            UICtrl.updateOutput(origin,destination, 0, arr);    
+            UICtrl.updateOutput(origin,destination, 0, arr, preference);    
         }else{
             while(1){
                 var result = calcResult(value);
@@ -223,7 +266,7 @@ var controller = (function(UICtrl){
             if(arr.lenth > 0)
                 arr.reverse();
             
-            UICtrl.updateOutput(origin,destination, ans, arr);
+            UICtrl.updateOutput(origin,destination, ans, arr, preference);
         }
 
     }
