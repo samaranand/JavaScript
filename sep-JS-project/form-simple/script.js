@@ -26,10 +26,10 @@ function checkEmail(email) {
 }
 
 // check required fields
-function checkRequired(intputArr){
-  intputArr.forEach(inp =>{
-    if(inp.value.trim()===''){
-      showError(inp, 'is required.')
+function checkRequired(intputArr) {
+  intputArr.forEach((inp) => {
+    if (inp.value.trim() === "") {
+      showError(inp, "is required.");
     } else {
       showSuccess(inp);
     }
@@ -37,23 +37,22 @@ function checkRequired(intputArr){
 }
 
 // check required length
-function checkLength(inp,m,n){
-  if(inp.value.length < m){
+function checkLength(inp, m, n) {
+  if (inp.value.length < m) {
     showError(inp, `must be atleast ${m} charaters.`);
-  } else if(inp.value.length > n){
+  } else if (inp.value.length > n) {
     showError(inp, ` must less than ${n} charaters.`);
   } else {
     showSuccess(inp);
   }
 }
 
-
 //check password 2
-function checkPassword(inp1, inp2){
-  if(inp2.value===''){
-    checkLength(inp2, 5, 20);  
-  } else if(inp1.value !== inp2.value){
-    showError(inp2,` don't match.`)
+function checkPassword(inp1, inp2) {
+  if (inp2.value === "") {
+    checkLength(inp2, 5, 20);
+  } else if (inp1.value !== inp2.value) {
+    showError(inp2, ` don't match.`);
   } else {
     showSuccess(inp2);
   }
@@ -65,5 +64,5 @@ form.addEventListener("submit", (e) => {
   checkRequired([username, email, password, password2]);
   checkLength(username, 3, 15);
   checkLength(password, 5, 20);
-  checkPassword(password,password2);
+  checkPassword(password, password2);
 });

@@ -36,35 +36,34 @@ h1 {
   padding: 10px;
 }
 
-.controls .btn{
-    border:0;
-    background: transparent;
-    cursor: pointer;
+.controls .btn {
+  border: 0;
+  background: transparent;
+  cursor: pointer;
 }
-.btn:focus{
-    outline: 0;
+.btn:focus {
+  outline: 0;
 }
 
-.controls .fa-play{
-    color: #28a745;
+.controls .fa-play {
+  color: #28a745;
 }
-.play-btn{
+.play-btn {
   color: #28a745;
   size: 4x;
 }
-.controls .fa-stop{
-    color: #dc3545;
+.controls .fa-stop {
+  color: #dc3545;
 }
-.controls .fa-pause{
-    color: #fff;
-}
-
-.controls .timestamp{
-    color: #fff;
-    font-weight: bold;
-    margin-left: 10px;
+.controls .fa-pause {
+  color: #fff;
 }
 
+.controls .timestamp {
+  color: #fff;
+  font-weight: bold;
+  margin-left: 10px;
+}
 
 @media (max-width: 800px) {
   .screen,

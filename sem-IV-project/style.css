@@ -1,94 +1,96 @@
 body {
-    background: #ccffff;
+  background: #ccffff;
 }
-h1{
-  text-align:center;
-  font-family:sans-serif;
+h1 {
+  text-align: center;
+  font-family: sans-serif;
 }
-.booking-form-box{
-  max-width:450px;
+.booking-form-box {
+  max-width: 450px;
   max-height: 600px;
-  border:15px solid #ced4da;
-  margin:5% auto 0;
-  padding:auto 0;
-  background:lightgrey;
+  border: 15px solid #ced4da;
+  margin: 5% auto 0;
+  padding: auto 0;
+  background: lightgrey;
   border-radius: 10px;
 }
-.radio-btn{
-  margin:10px 5px;
-  padding:20px;
-  justify-content:center;
+.radio-btn {
+  margin: 10px 5px;
+  padding: 20px;
+  justify-content: center;
 }
-.preferences{
-  justify-content:center;
+.preferences {
+  justify-content: center;
 }
-.radio-btn .btn{
-  margin:10px 10px 10px 0;
-  box-shadow:none;
-  transition:0.5s;
+.radio-btn .btn {
+  margin: 10px 10px 10px 0;
+  box-shadow: none;
+  transition: 0.5s;
 }
-.box,.travel,.value1,.value2{
-  margin:10px;
-  padding:10px;
-  border-radius:8px;
+.box,
+.travel,
+.value1,
+.value2 {
+  margin: 10px;
+  padding: 10px;
+  border-radius: 8px;
   min-width: 150px;
 }
-.depart1{
-  margin:5px;
-  padding:30px;
-  
+.depart1 {
+  margin: 5px;
+  padding: 30px;
 }
-.depart2,.adult,.main-body
-{
-  margin:0px;
-  padding:10px;
+.depart2,
+.adult,
+.main-body {
+  margin: 0px;
+  padding: 10px;
 }
-.departure{
-  margin:40px;
-  padding:20px;
+.departure {
+  margin: 40px;
+  padding: 20px;
 }
-.go
-{
-  margin:10px;
-  padding:65px;
-}
-
-#adults,#children,#date
-{
-	border-radius:8px;
-    margin: none;
-    padding:4px;
-}
-.return
-{
-  margin:76px;;
-  padding:9px;
-}
-.space{
-  padding:40px;
-  margin:none;
-}
-.child{
-	padding:80px;
-	margin:none;
-}
-.sp1{
-	padding:40px;
-	margin:none;
-}
-.sp{
-	padding:20px;
-	margin:none;
-}
-.sp2
-{
-	padding:20px;
-	margin:none;
+.go {
+  margin: 10px;
+  padding: 65px;
 }
 
-.travel,.search_bttn,.clear_bttn{
-	margin:5px;
-	padding:10px;
-	border-radius:8px;
-	
+#adults,
+#children,
+#date {
+  border-radius: 8px;
+  margin: none;
+  padding: 4px;
+}
+.return {
+  margin: 76px;
+  padding: 9px;
+}
+.space {
+  padding: 40px;
+  margin: none;
+}
+.child {
+  padding: 80px;
+  margin: none;
+}
+.sp1 {
+  padding: 40px;
+  margin: none;
+}
+.sp {
+  padding: 20px;
+  margin: none;
+}
+.sp2 {
+  padding: 20px;
+  margin: none;
+}
+
+.travel,
+.search_bttn,
+.clear_bttn {
+  margin: 5px;
+  padding: 10px;
+  border-radius: 8px;
 }

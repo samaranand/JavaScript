@@ -30,69 +30,63 @@ function addData(obj) {
   updateUI();
 }
 
-
-
 // doubling evryone money
 
-function doubleMoney(){
-    data = data.map(user => {
-        return {...user, money: user.money*2};
-    });
-    updateUI();
+function doubleMoney() {
+  data = data.map((user) => {
+    return { ...user, money: user.money * 2 };
+  });
+  updateUI();
 }
-
 
 // sort the data
 
-function sortData(){
-    data.sort((a,b) => b.money - a.money);
-    updateUI();
+function sortData() {
+  data.sort((a, b) => b.money - a.money);
+  updateUI();
 }
 
 // show only Millionaries
 
-function showMillionaries(){
-    data = data.filter(user => user.money > 1000000);
-    updateUI();
+function showMillionaries() {
+  data = data.filter((user) => user.money > 1000000);
+  updateUI();
 }
 
-function calculateWealth(){
-    let wealth = data.reduce((acc,user) => (acc += user.money), 0);
-    wealth = `₹${wealth}.00`;
-    const wealthEl = document.createElement('div');
-    wealthEl.innerHTML = `<h3>Total Money: <strong>${wealth}</strong></h3>`;
-    main.appendChild(wealthEl); 
+function calculateWealth() {
+  let wealth = data.reduce((acc, user) => (acc += user.money), 0);
+  wealth = `₹${wealth}.00`;
+  const wealthEl = document.createElement("div");
+  wealthEl.innerHTML = `<h3>Total Money: <strong>${wealth}</strong></h3>`;
+  main.appendChild(wealthEl);
 }
-
-
 
 // updaing data in UI
 
-function updateUI(providedData = data){
-    // clearing the main UI
-    main.innerHTML = ` <h2><strong>Person</strong> Wealth</h2>`;
+function updateUI(providedData = data) {
+  // clearing the main UI
+  main.innerHTML = ` <h2><strong>Person</strong> Wealth</h2>`;
 
-    providedData.forEach(item => {
-        const ele = document.createElement('div');
-        ele.classList.add('person');
-        amount = `₹${item.money}.00`;
-        ele.innerHTML = `<strong>${item.name}</strong> ${amount}`;
-        main.appendChild(ele);
-    });
+  providedData.forEach((item) => {
+    const ele = document.createElement("div");
+    ele.classList.add("person");
+    amount = `₹${item.money}.00`;
+    ele.innerHTML = `<strong>${item.name}</strong> ${amount}`;
+    main.appendChild(ele);
+  });
 }
 
-
 // function for add random user using addBtn
-addUserBtn.addEventListener('click',getRandomUser);
+addUserBtn.addEventListener("click", getRandomUser);
 
 // function for double money using doubleBtn
-doubleMoneyBtn.addEventListener('click',doubleMoney);
+doubleMoneyBtn.addEventListener("click", doubleMoney);
 
 // function for sorting using sortBtn
-sortUserBtn.addEventListener('click',sortData);
+sortUserBtn.addEventListener("click", sortData);
 
 // function for filtering using showMillionariesBtn
-showMillionariesBtn.addEventListener('click',showMillionaries);
+showMillionariesBtn.addEventListener("click", showMillionaries);
 
 // function for filtering using showMillionariesBtn
-calculateWealthBtn.addEventListener('click',calculateWealth);
+calculateWealthBtn.addEventListener("click", calculateWealth);
