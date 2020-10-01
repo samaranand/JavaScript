@@ -1,106 +1,112 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
     <title>Movie Seat Booking</title>
-</head>
-<body>
+  </head>
+  <body>
     <div class="movie-container">
-        <label>Pick a Movie:</label>
-        <select id="movie">
-            
-            <option value="20">DDLJ (<span class="rupees">&#8377;</span>20)</option>
-            <option value="10">Jab Tak rhega jaan (<span class="rupees">&#8377;</span>10)</option>
-            <option value="15">arya (<span class="rupees">&#8377;</span>15)</option>
-            <option value="25">iron man (<span class="rupees">&#8377;</span>25)</option>
-        </select>
+      <label>Pick a Movie:</label>
+      <select id="movie">
+        <option value="20">DDLJ (<span class="rupees">&#8377;</span>20)</option>
+        <option value="10">
+          Jab Tak rhega jaan (<span class="rupees">&#8377;</span>10)
+        </option>
+        <option value="15">arya (<span class="rupees">&#8377;</span>15)</option>
+        <option value="25">
+          iron man (<span class="rupees">&#8377;</span>25)
+        </option>
+      </select>
     </div>
     <ul class="showcase">
-        <li>
-            <div class="seat"></div>
-            <small>N/A</small>
-        </li>
-        <li>
-            <div class="seat selected"></div>
-            <small>Selected</small>
-        </li>
-        <li>
-            <div class="seat occupied"></div>
-            <small>Occupied</small>
-        </li>
+      <li>
+        <div class="seat"></div>
+        <small>N/A</small>
+      </li>
+      <li>
+        <div class="seat selected"></div>
+        <small>Selected</small>
+      </li>
+      <li>
+        <div class="seat occupied"></div>
+        <small>Occupied</small>
+      </li>
     </ul>
     <div class="container">
-        <div class="screen"> <small>screen</small></div>
-        <!-- row 1 -->
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <!-- row 2 -->
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <!-- row 3 -->
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-        </div>
-        <!-- row 4 -->
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-        </div>
-        <!-- row 5 -->
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat occupied"></div>
-        </div>
-        <!-- row 6 -->
-        <div class="row">
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat"></div>
-            <div class="seat occupied"></div>
-            <div class="seat occupied"></div>
-        </div>
+      <div class="screen"><small>screen</small></div>
+      <!-- row 1 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <!-- row 2 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <!-- row 3 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+      </div>
+      <!-- row 4 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+      </div>
+      <!-- row 5 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+      </div>
+      <!-- row 6 -->
+      <div class="row">
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat"></div>
+        <div class="seat occupied"></div>
+        <div class="seat occupied"></div>
+      </div>
     </div>
-    <p class="text">You have selected <span id="count">0</span> sates for a price <span class="rupees">&#8377;</span><span id="price"> 0.</span></p>
+    <p class="text">
+      You have selected <span id="count">0</span> sates for a price
+      <span class="rupees">&#8377;</span><span id="price"> 0.</span>
+    </p>
     <script src="script.js"></script>
-</body>
+  </body>
 </html>

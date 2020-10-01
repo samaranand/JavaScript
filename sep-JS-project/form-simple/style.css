@@ -4,12 +4,12 @@
   --error-color: #e74c3c;
 }
 
-*{
+* {
   box-sizing: border-box;
 }
 
 body {
-  background-color: #DAE0E2;
+  background-color: #dae0e2;
   font-family: "Open Sans", sans-serif;
   display: flex;
   align-items: center;
