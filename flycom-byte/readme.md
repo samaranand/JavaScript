@@ -1,3 +1,5 @@
+#flycom-byte
+
 # sem IV JS project
 
 basic implementations of JS HTML & CSS
