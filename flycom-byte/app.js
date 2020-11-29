@@ -1,5 +1,7 @@
 const infinity = 999999;
 
+
+
 let data = {
   safarAirways: {
     time: {
