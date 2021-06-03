@@ -12,7 +12,7 @@ const _tasks = []
 // itemid
 let _itemId = 0
 
-const fetchTask = (token) =>{
+const fetchTask = async (token) =>{
   var myHeaders = new Headers();
   myHeaders.append("Authorization", token);
 
@@ -22,21 +22,20 @@ const fetchTask = (token) =>{
     redirect: 'follow'
   };
 
-  fetch("https://samar-task-manager-api.herokuapp.com/tasks", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-      const res = JSON.parse(result)
-      // console.log(res)
-      if(res){
-        res.forEach(e => {
-          e.tid = _itemId
-          _tasks.push(e)
-          _itemId += 1
-          addtoUI(e)
-        })
-      }
-    })
-    .catch(error => console.log('error', error));
+  const response = await fetch("https://samar-task-manager-api.herokuapp.com/tasks", requestOptions)
+  if(response.status !== 200){
+    alert('Something went wrong')
+  } else {
+    const res = await response.json()
+    if(res.length > 0){
+      res.forEach(e => {
+        e.tid = _itemId
+        _tasks.push(e)
+        _itemId += 1
+        addtoUI(e)
+      })
+    }
+  }
 }
 
 if(!_token){
@@ -89,7 +88,7 @@ _items.insertAdjacentHTML('beforeend', item)
 
 
 
-const dltitemDB = (tid)=>{
+const dltitemDB = async (tid)=>{
   console.log('at db')
   const _r = _tasks.filter(ob => ob.tid == tid)
   const  r = _r[0]
@@ -102,10 +101,12 @@ const dltitemDB = (tid)=>{
     redirect: 'follow'
   };
 
-  fetch(`https://samar-task-manager-api.herokuapp.com/tasks/${r._id}`, requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  const response = await fetch(`https://samar-task-manager-api.herokuapp.com/tasks/${r._id}`, requestOptions)
+  if(response.status !== 200){
+    alert('SOmething went wrong')
+  } else {
+    console.log('deleted')
+  }
 }
 
 
@@ -136,7 +137,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
-const addtoDB = (data)=>{
+const addtoDB = async (data)=>{
   var myHeaders = new Headers();
   myHeaders.append("Authorization", _token);
   myHeaders.append("Content-Type", "application/json");
@@ -150,42 +151,11 @@ const addtoDB = (data)=>{
     redirect: 'follow'
   };
 
-  fetch("https://samar-task-manager-api.herokuapp.com/tasks", requestOptions)
-    .then(response => response.text())
-    .then(result => console.log(result))
-    .catch(error => console.log('error', error));
+  const response = await fetch("https://samar-task-manager-api.herokuapp.com/tasks", requestOptions)
+  if(response.status !== 201){
+    alert('SOmething went wrong')
+  } else {
+    console.log('Added')
+  }
 }
 
-
-
-
-
-// eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MGI4NDJmZmQzNDQyYTAwMTVlNjdhYWEiLCJpYXQiOjE2MjI2ODg1Mzd9.XBUGNZ8fnEVYOk_Vd_mvrX8Z0uFiqeWtHRIViGDiUU8
-
-
-
-
-
-
-
-
-
-// var myHeaders = new Headers();
-// myHeaders.append("Content-Type", "application/json");
-// // myHeaders.append("Content-Type", "application/x-www-form-urlencoded");
-
-// var raw = JSON.stringify({name:"Samar Anand", email:"ok@ok.in", password:"sam12345"});
-
-// var requestOptions = {
-//   method: 'POST',
-//   headers: myHeaders,
-//   body: raw,
-//   redirect: 'follow',
-//   dataType:'json'
-
-// };
-
-// fetch("http://localhost:3000/users", requestOptions)
-//   .then(response => response.text())
-//   .then(result => console.log(result))
-//   .catch(error => console.log('error', error));

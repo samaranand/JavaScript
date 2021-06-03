@@ -1,5 +1,5 @@
 const form = document.getElementById("form");
-const username = document.getElementById("username");
+const username = document.getElementById("name");
 const email = document.getElementById("email");
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
@@ -69,26 +69,37 @@ function checkPassword(inp1, inp2) {
 //event listner
 form.addEventListener("submit", (e) => {
   e.preventDefault();
-  checkRequired([username, email, password, password2]);
-  checkLength(username, 3, 15);
-  checkLength(password, 5, 20);
-  checkPassword(password, password2);
+  let f = true
+  f = checkRequired([username, email, password, password2]) && f;
+  f = checkLength(username, 3, 15) && f;
+  f = checkLength(password, 5, 20) && f;
+  f = checkPassword(password, password2) && f;
   const data = {
-    "name" : username,
-    email,
-    password
+    "name" : username.value,
+    "email": email.value,
+    "password":password.value
   }
-  signupDB(data)
+  if(f===true){
+    console.log('i m here')
+    signupDB(data)
+  }
 });
 
 
+const showErr = async ()=>{
+  alert('Something went wrong')
+  await localStorage.removeItem("token")
+  location.replace('signin.html')
+}
 
-const signupDB = (data)=>{
+
+
+const signupDB = async (data)=>{
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
 
   var raw = JSON.stringify({"name":data.name,"email":data.email,"age":23,"password":data.password});
-
+  console.log(raw)
   var requestOptions = {
     method: 'POST',
     headers: myHeaders,
@@ -96,22 +107,16 @@ const signupDB = (data)=>{
     redirect: 'follow'
   };
 
-  fetch("https://samar-task-manager-api.herokuapp.com/users", requestOptions)
-    .then(response => {
-      if(response.status !== 201){
-        return Error()
-      } else {
-        return response.text()
-      }
-    })
-    .then(result => {
-      // console.log(result)
-      alert("sign up scuccessful")
-      location.replace('signin.html')       
+  const response = await  fetch("https://samar-task-manager-api.herokuapp.com/users", requestOptions)
+  if(response.status !== 201){
+    console.log('i m err')
+    alert('Something went wrong')
+    throw Error('error happende')
+  } else {
+    // const responseJSON = await response.json()
+    console.log('my self samar')
+    alert('Signup Successful')
+    location.replace('signin.html')       
 
-    })
-    .catch(error => {
-      console.log('error', error)
-      alert("sign up failed")
-    });
+  }
 }

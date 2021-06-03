@@ -1,5 +1,6 @@
 const _update = document.getElementById('update')
 const _logout = document.getElementById('logout')
+const _back = document.getElementById('back')
 
 const password = document.getElementById("password");
 const password2 = document.getElementById("password2");
@@ -65,11 +66,13 @@ function checkLength(inp, m, n) {
 //check password 2
 function checkPassword(inp1, inp2) {
   if (inp2.value === "") {
-    checkLength(inp2, 5, 20);
+    return checkLength(inp2, 5, 20);
   } else if (inp1.value !== inp2.value) {
     showError(inp2, ` don't match.`);
+    return false
   } else {
     showSuccess(inp2);
+    return true
   }
 }
 
@@ -77,15 +80,24 @@ function checkPassword(inp1, inp2) {
 // updating password
 _update.addEventListener('click', (e)=>{
     e.preventDefault()
-    checkRequired([ password, password2])
-    checkLength(password, 5, 20);
-    checkLength(password2, 5, 20);
-    checkPassword(password, password2);
-    _updateDBpass(password.value)
+    let f = true
+    f = checkRequired([ password, password2]) && f
+    f = checkLength(password, 5, 20) && f
+    f = checkLength(password2, 5, 20) && f
+    f = checkPassword(password, password2) && f
+    if(f){
+      _updateDBpass(password.value)
+    }
 })
 
 
-const _updateDBpass = (pass)=>{
+const showErr = async ()=>{
+  alert('Something went wrong')
+  await localStorage.removeItem("token")
+  location.replace('signin.html')
+}
+
+const _updateDBpass = async (pass)=>{
     var myHeaders = new Headers();
     myHeaders.append("Authorization", _token);
     myHeaders.append("Content-Type", "application/json");
@@ -99,15 +111,18 @@ const _updateDBpass = (pass)=>{
     redirect: 'follow'
     };
 
-    fetch("https://samar-task-manager-api.herokuapp.com/users/me", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-        console.log(result)
-        alert('password change success')
-        logout()
-    })
-    .catch(error => console.log('error', error));
+    
+    const response = await  fetch("https://samar-task-manager-api.herokuapp.com/users/me", requestOptions)
+    if(response.status !== 200){
+      showErr()
+    } else {
+      const res = await response.json()
+      alert('password change success')
+      logout()
+    }
 }
+
+
 
 
 // logging out
@@ -117,7 +132,7 @@ _logout.addEventListener('click', e=>{
     logout()
 })
 
-const logout = ()=>{
+const logout = async ()=>{
     var myHeaders = new Headers();
     myHeaders.append("Authorization", _token);
 
@@ -127,20 +142,14 @@ const logout = ()=>{
     redirect: 'follow'
     };
 
-    fetch("https://samar-task-manager-api.herokuapp.com/users/logout", requestOptions)
-    .then(response => response.text())
-    .then( result => {
-        console.log(result)
-        const f = async ()=>{
-            _token = undefined
-            await localStorage.removeItem("token")
-            location.replace('signin.html')       
-        }
-        f()
-        
-        
-    })
-    .catch(error => console.log('error', error));
+    const response = await fetch("https://samar-task-manager-api.herokuapp.com/users/logout", requestOptions)
+    if(response.status !== 200){
+      showErr()
+    } else {
+      alert('Logout Successful')
+      await localStorage.removeItem("token")
+      location.replace('signin.html')       
+    }
 }
 
 
@@ -150,7 +159,7 @@ const updateui = (res)=>{
 }
 
 
-const ui = ()=>{
+const ui = async ()=>{
     var myHeaders = new Headers();
     myHeaders.append("Authorization", _token);
 
@@ -161,19 +170,23 @@ const ui = ()=>{
         redirect: 'follow'
     };
 
-    fetch("https://samar-task-manager-api.herokuapp.com/users/me", requestOptions)
-    .then(response => response.text())
-    .then(result => {
-        console.log(result)
-        const me = JSON.parse(result)
-        updateui(me)
-    })
-    .catch(error => {
-        console.log('error', error)
-    });
+   const response = await fetch("https://samar-task-manager-api.herokuapp.com/users/me", requestOptions)
+   if(response.status !== 200){
+    // alert('Something went wrong')
+    showErr()
+   } else {
+      const res = await response.json()
+      updateui(res)
+   }
 }
 
 
 ui();
 
 
+
+
+_back.addEventListener('click', e=>{
+  e.preventDefault()
+  location.replace('index.html')
+})

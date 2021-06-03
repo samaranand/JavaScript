@@ -62,16 +62,16 @@ form.addEventListener("submit", (e) => {
     "email" : email.value,
     "password": password.value
   }
-  console.log(data)
+  // console.log(data)
   if(t1 && t2){
-    console.log('going')
+    // console.log('going')
     loginme(data)
   }
 });
 
 
 
-const loginme = (data)=>{
+const loginme = async (data)=>{
   var myHeaders = new Headers();
   myHeaders.append("Content-Type", "application/json");
   console.log('here')
@@ -84,29 +84,20 @@ const loginme = (data)=>{
     redirect: 'follow'
   };
 
-  fetch("https://samar-task-manager-api.herokuapp.com/users/login", requestOptions)
-    .then((response) => {
-      if(response.status !== 200){
-        return Error()
-      } else {
-        return response.text()
-      }
-    })
-    .then(result => {
-      console.log(result)
-      const res = JSON.parse(result)
-      console.log(res)
-      const token = "Bearer " + res.token
-      localStorage.setItem("token", JSON.stringify(token))
-      location.replace("index.html")
-    })
-    .catch(error => {
-      // console.log('error', error)
-      alert("Invalid Login")
-    });
+  const response = await fetch("https://samar-task-manager-api.herokuapp.com/users/login", requestOptions)
+  if(response.status !== 200){
+    alert('Invalid login')
+  } else {
+    const res = await response.json()
+    const token = 'Bearer ' + res.token
+    await localStorage.setItem("token", JSON.stringify(token))
+    location.replace("index.html")
+  }
 }
 
 signup.addEventListener('click', e=>{
   e.preventDefault()
   location.replace("signup.html")
 })
+
+
