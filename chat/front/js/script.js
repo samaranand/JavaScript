@@ -1,33 +1,14 @@
-console.log('task manager app in progress')
+console.log("task manager app in progress");
 
 const me = {
-  token : undefined
-}
+    token: undefined,
+};
 
-const close = document.querySelector('.list-item')
+const close = document.querySelector(".list-item");
 
-
-close.addEventListener('click', (e)=>{
-  console.log(e.target.parentNode)
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+close.addEventListener("click", (e) => {
+    console.log(e.target.parentNode);
+});
 
 // var myHeaders = new Headers();
 // myHeaders.append("Content-Type", "application/json");

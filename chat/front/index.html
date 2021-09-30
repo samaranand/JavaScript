@@ -1,92 +1,122 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Task App</title>
-    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-    <link
-      type="text/css"
-      rel="stylesheet"
-      href="css/materialize.css"
-      media="screen,projection"
-    />
-</head>
-<body class="">
-    <header class="main-header">
-        <div class="navbar-fixed">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Task App</title>
+        <link
+            href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet"
+        />
+        <link
+            type="text/css"
+            rel="stylesheet"
+            href="css/materialize.css"
+            media="screen,projection"
+        />
+    </head>
+    <body class="">
+        <header class="main-header">
+            <div class="navbar-fixed">
+                <nav>
+                    <div class="nav-wrapper">
+                        <ul class="left">
+                            <li>
+                                <a href="sass.html"
+                                    ><i class="material-icons">person</i></a
+                                >
+                            </li>
+                        </ul>
+                        <ul class="right">
+                            <li>
+                                <a href="#"
+                                    ><i class="material-icons">code</i></a
+                                >
+                            </li>
+                            <li>
+                                <a href="#"
+                                    ><i class="material-icons"
+                                        >brightness_4</i
+                                    ></a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+            </div>
+        </header>
+        <main class="container">
+            <section class="list-item">
+                <ul class="collection">
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">Title</span>
+                        <p>
+                            First Line <br />
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content close"
+                            ><i class="material-icons">close</i></a
+                        >
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle">folder</i>
+                        <span class="title">Title</span>
+                        <p>
+                            First Line <br />
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content close"
+                            ><i class="material-icons">close</i></a
+                        >
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle green">insert_chart</i>
+                        <span class="title">Title</span>
+                        <p>
+                            First Line <br />
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content close"
+                            ><i class="material-icons">close</i></a
+                        >
+                    </li>
+                    <li class="collection-item avatar">
+                        <i class="material-icons circle red">play_arrow</i>
+                        <span class="title">Title</span>
+                        <p>
+                            First Line <br />
+                            Second Line
+                        </p>
+                        <a href="#!" class="secondary-content close"
+                            ><i class="material-icons">close</i></a
+                        >
+                    </li>
+                </ul>
+            </section>
 
-  <nav>
-    <div class="nav-wrapper">
-        <ul class="left">
-            <li><a href="sass.html"><i class="material-icons">person</i></a></li>
-        </ul>  
-      <ul class="right ">
-        <li><a href="#"><i class="material-icons">code</i></a></li>
-        <li><a href="#"><i class="material-icons">brightness_4</i></a></li>
-      </ul>
-    </div>
-  </nav>
-        </div>
-    </header>
-    <main class="container">
-        <section class="list-item">
-            <ul class="collection">
-                <li class="collection-item avatar">
-                    <i class="material-icons circle">folder</i>
-                  <span class="title">Title</span>
-                  <p>First Line <br>
-                     Second Line
-                  </p>
-                  <a href="#!" class="secondary-content close"><i class="material-icons">close</i></a>
-                </li>
-                <li class="collection-item avatar">
-                  <i class="material-icons circle">folder</i>
-                  <span class="title">Title</span>
-                  <p>First Line <br>
-                     Second Line
-                  </p>
-                  <a href="#!" class="secondary-content close"><i class="material-icons">close</i></a>
-                </li>
-                <li class="collection-item avatar">
-                  <i class="material-icons circle green">insert_chart</i>
-                  <span class="title">Title</span>
-                  <p>First Line <br>
-                     Second Line
-                  </p>
-                  <a href="#!" class="secondary-content close"><i class="material-icons">close</i></a>
-                </li>
-                <li class="collection-item avatar">
-                  <i class="material-icons circle red">play_arrow</i>
-                  <span class="title">Title</span>
-                  <p>First Line <br>
-                     Second Line
-                  </p>
-                  <a href="#!" class="secondary-content close"><i class="material-icons">close</i></a>
-                </li>
-              </ul>
-        </section>
-
-        <section class="center-align">
-        <div class="row ">
-            <form class="col s12">
-              <div class="row">
-                <div class="input-field col m5 offset-m3">
-                    <input id="icon_prefix" type="text" class="validate">
-                    <label for="icon_prefix">Task</label>
-                    <i class="material-icons prefix">send</i>
+            <section class="center-align">
+                <div class="row">
+                    <form class="col s12">
+                        <div class="row">
+                            <div class="input-field col m5 offset-m3">
+                                <input
+                                    id="icon_prefix"
+                                    type="text"
+                                    class="validate"
+                                />
+                                <label for="icon_prefix">Task</label>
+                                <i class="material-icons prefix">send</i>
+                            </div>
+                        </div>
+                    </form>
                 </div>
-              </div>
-            </form>
-          </div>
-        </section>
-    </main>
-    <footer>
-        i m footer
-    </footer>
+            </section>
+        </main>
+        <footer>i m footer</footer>
 
-    <script src="./js/script.js"></script>
-    <script src="./js/materialize.js"></script>
-</body>
+        <script src="./js/script.js"></script>
+        <script src="./js/materialize.js"></script>
+    </body>
 </html>

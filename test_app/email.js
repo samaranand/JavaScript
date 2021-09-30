@@ -1,16 +1,16 @@
-const nodemailer = require('nodemailer');
+const nodemailer = require("nodemailer");
 const transport = nodemailer.createTransport({
-    service: 'Gmail',
+    service: "Gmail",
     auth: {
-        user: 'pkskd445@gmail.com',
-        pass: 'samar12345',
+        user: "pkskd445@gmail.com",
+        pass: "samar12345",
     },
 });
 const mailOptions = {
-    from: 'pkskd445@gmail.com',
-    to: 'samaranand5581@gmail.com',
-    subject: 'hello world!',
-    html: 'hello world!',
+    from: "pkskd445@gmail.com",
+    to: "samaranand5581@gmail.com",
+    subject: "hello world!",
+    html: "hello world!",
 };
 transport.sendMail(mailOptions, (error, info) => {
     if (error) {
