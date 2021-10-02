@@ -11,4 +11,3 @@ Steps to work locally:
 3.  run ***npm start*** in terminal
 
 Watch ***[live demo](https://www.linkedin.com/posts/sandipan-das-528166175_kmchallenge-webdevelopment-developer-activity-6754773304017514496-8sXq)*** here 
-
