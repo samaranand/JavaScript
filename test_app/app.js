@@ -1,5 +1,5 @@
-const got = require('got');
-const moment = require('moment');
+const got = require("got");
+const moment = require("moment");
 const loopSeconds = 120;
 const myLoc = { latitude: 32.715738, longitude: -117.161084 };
 const url = `http://api.open-notify.org/iss-pass.json?lat=${myLoc.latitude}&lon=${myLoc.longitude}`;
@@ -7,8 +7,8 @@ const url = `http://api.open-notify.org/iss-pass.json?lat=${myLoc.latitude}&lon=
 
 function loop() {
     got(url, { json: true })
-        .then(iss => {
-            console.log(iss)
+        .then((iss) => {
+            console.log(iss);
             // const nextPasses = iss.body.response;
             // const now = moment();
             // console.log('Next ISS passes near me');
@@ -19,7 +19,7 @@ function loop() {
             //     console.log(`${passTime} (in ${minutesFromNow} minutes) for ${pass.duration} seconds`);
             // }
         })
-        .catch(error => {
+        .catch((error) => {
             console.log(error);
         });
     setTimeout(loop, loopSeconds * 1000);

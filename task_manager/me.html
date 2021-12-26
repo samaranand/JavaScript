@@ -1,43 +1,51 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="signup/style.css" />
-    <title>About Me</title>
-  </head>
-  <body>
-    <div class="container">
-      <form class="form" id="form">
-        <h2>About Me</h2>
-        <!-- first one -->
-        <div class="form-control">
-          <label for="username">Name: <b id="name" style="color: black;" ></b></label>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="signup/style.css" />
+        <title>About Me</title>
+    </head>
+    <body>
+        <div class="container">
+            <form class="form" id="form">
+                <h2>About Me</h2>
+                <!-- first one -->
+                <div class="form-control">
+                    <label for="username"
+                        >Name: <b id="name" style="color: black"></b
+                    ></label>
+                </div>
+                <div class="form-control">
+                    <label for="email"
+                        >Email: <b id="email" style="color: black"></b
+                    ></label>
+                </div>
+                <div class="form-control">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="enter password"
+                    />
+                    <small>error msg</small>
+                </div>
+                <!-- fourth one -->
+                <div class="form-control">
+                    <label for="password2">Confirm Password</label>
+                    <input
+                        type="password"
+                        id="password2"
+                        placeholder="enter password again"
+                    />
+                    <small>error msg</small>
+                </div>
+                <!-- <small>error msg</small> -->
+                <button id="update">Update Password</button>
+
+                <button id="logout">Log out</button>
+            </form>
         </div>
-        <div class="form-control">
-            <label for="email">Email: <b id="email" style="color: black;"></b></label>
-          </div>
-          <div class="form-control">
-            <label for="password">Password</label>
-            <input type="password" id="password" placeholder="enter password" />
-            <small>error msg</small>
-          </div>
-          <!-- fourth one -->
-          <div class="form-control">
-            <label for="password2">Confirm Password</label>
-            <input
-              type="password"
-              id="password2"
-              placeholder="enter password again"
-            />
-            <small>error msg</small>
-          </div>
-          <!-- <small>error msg</small> -->
-          <button  id="update">Update Password</button>
-        
-        <button  id="logout">Log out</button>
-    </form>
-    </div>
-    <script src="me/script.js"></script>
-  </body>
+        <script src="me/script.js"></script>
+    </body>
 </html>
