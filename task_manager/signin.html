@@ -1,34 +1,38 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="signin/style.css" />
-    <title>Sign in</title>
-  </head>
-  <body>
-    <div class="container">
-      <form class="form" id="form">
-        <h2>Log in</h2>
-        
-        <!-- second one -->
-        <div class="form-control">
-          <label for="email">Email</label>
-          <input type="text" id="email" placeholder="enter email" />
-          <small>error msg</small>
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="signin/style.css" />
+        <title>Sign in</title>
+    </head>
+    <body>
+        <div class="container">
+            <form class="form" id="form">
+                <h2>Log in</h2>
+
+                <!-- second one -->
+                <div class="form-control">
+                    <label for="email">Email</label>
+                    <input type="text" id="email" placeholder="enter email" />
+                    <small>error msg</small>
+                </div>
+                <!-- third one -->
+                <div class="form-control">
+                    <label for="password">Password</label>
+                    <input
+                        type="password"
+                        id="password"
+                        placeholder="enter password"
+                    />
+                    <small>error msg</small>
+                </div>
+
+                <button type="submit">Log in</button>
+                <button id="signup">Sign up</button>
+            </form>
         </div>
-        <!-- third one -->
-        <div class="form-control">
-          <label for="password">Password</label>
-          <input type="password" id="password" placeholder="enter password" />
-          <small>error msg</small>
-        </div>
-        
-        <button type="submit">Log in</button>
-        <button id="signup">Sign up</button>
-      </form>
-    </div>
-    
-    <script src="signin/script.js"></script>
-  </body>
+
+        <script src="signin/script.js"></script>
+    </body>
 </html>
